@@ -16,13 +16,13 @@ $password = $_POST['password'];
     if($count_user == 1){
         echo json_encode('duplicate_username');
     }else if($count_user == 0){
-        $sqle_mail = "SELECT * FROM user WHERE email = '".$email."'  ";
+        $sqle_mail = "SELECT * FROM tb_user WHERE email = '".$email."'  ";
         $result_email = mysqli_query($condb,$sqle_mail);
         $count_email = mysqli_num_rows($result_email);
     if($count_email == 1){
             echo json_encode('duplicate_email');
     }else if($count_email == 0){
-        $sql_phone = "SELECT * FROM tb_user WHERE phone = '".$tb_phone."'  ";
+        $sql_phone = "SELECT * FROM tb_user WHERE phone = '".$phone."'  ";
         $result_phone = mysqli_query($condb,$sql_phone);
         $count_phone = mysqli_num_rows($result_phone);
         if($count_phone == 1){
@@ -34,7 +34,7 @@ $password = $_POST['password'];
              if ($result_insert) {
                  echo json_encode('succes');
              } else {
-                echo "เกิดข้อผิดพลาด" . mysqli_error($condb);
+                
             }
          }
         }
